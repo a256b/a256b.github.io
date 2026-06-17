@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EnroqueApp</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .galeria-detalle {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1px;
+        }
+
+        .galeria-detalle a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 100%;
+            background: #C0C0C0;
+        }
+
+        .galeria-detalle img {
+            max-width: 100%;
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="window app">
+        <section>
+            <div class="window section">
+                <div class="title-bar">
+                    <div class="title-bar-text">
+                        EnroqueApp
+                    </div>
+
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+
+                <div class="window-body">
+
+                    <a href="../proyectos.html">
+                        <button><< Volver a proyectos</button>
+                    </a>
+
+                    <a href="../index.html">
+                        <button><< Ir al inicio</button>
+                    </a>
+
+                    <hr>
+
+                    <h2>EnroqueApp</h2>
+
+                    <p>
+                        Aplicación Android desarrollada en Kotlin para gestionar torneos de ajedrez. 
+                        <br><br>Permite a jugadores, aficionados y administradores participar en distintas etapas de un torneo mediante un sistema de roles y permisos, incluyendo inscripción de participantes, generación automática de fixtures, seguimiento de partidas en tiempo real y gestión de sedes mediante mapas interactivos. 
+                        <br><br>La aplicación utiliza Firebase Authentication para la autenticación de usuarios y Cloud Firestore para la sincronización y persistencia de datos en tiempo real.
+                    </p>
+
+                    <div class="window">
+
+                        <div class="title-bar">
+                            <div class="title-bar-text">
+                                Galería (8)
+                            </div>
+                        </div>
+
+                        <div class="window-body">
+
+                            <div class="galeria-detalle">
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770751131/drawer_tpc7td.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770751131/drawer_tpc7td.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655688/mapa_interactivo_pgv9p7.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655688/mapa_interactivo_pgv9p7.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655681/torneos_zfq8pr.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655681/torneos_zfq8pr.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655684/detalle_torneo_bbu89c.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655684/detalle_torneo_bbu89c.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655681/fixture_rztvwf.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655681/fixture_rztvwf.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655682/detalle_partida_irqcgz.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655682/detalle_partida_irqcgz.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655683/movimientos_efgl8z.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655683/movimientos_efgl8z.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655683/inscripciones_fk4aog.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1770655683/inscripciones_fk4aog.png">
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="window">
+
+                        <div class="title-bar">
+                            <div class="title-bar-text">
+                                Funcionalidades principales
+                            </div>
+                        </div>
+
+                        <div class="window-body">
+                            <p>Usuarios y roles</p>
+                            <ul>
+                                <li>Autenticación y registro mediante Firebase Authentication.</li>
+                                <li>Sistema de roles para aficionados, jugadores y administradores.</li>
+                                <li>Permisos y funcionalidades diferenciadas según el tipo de usuario.</li>
+                                <li>Sistema de favoritos y seguimiento de torneos.</li>
+                            </ul>
+
+                            <p>Gestión de torneos</p>
+                            <ul>
+                                <li>Creación y administración de torneos.</li>
+                                <li>Control de inscripciones y validación de participantes.</li>
+                                <li>Gestión del ciclo de vida de torneos.</li>
+                                <li>Generación automática de fixtures y emparejamientos.</li>
+                            </ul>
+
+                            <p>Seguimiento de partidas</p>
+                            <ul>
+                                <li>Registro y administración de partidas.</li>
+                                <li>Carga de movimientos mediante un teclado especializado para notación de ajedrez.</li>
+                                <li>Visualización de resultados y movimientos en tiempo real.</li>
+                                <li>Historial completo de partidas por torneo.</li>
+                                <li>Actualización automática de posiciones y clasificaciones.</li>
+                            </ul>
+
+                            <p>Persistencia y sincronización</p>
+                            <ul>
+                                <li>Almacenamiento de usuarios, torneos, partidas e inscripciones en Cloud Firestore.</li>
+                                <li>Sincronización de datos en tiempo real entre dispositivos.</li>
+                                <li>Persistencia del historial de torneos y partidas.</li>
+                                <li>Actualización automática de información sin necesidad de recargar la aplicación.</li>
+                            </ul>
+
+                            <p>Mapa interactivo</p>
+                            <ul>
+                                <li>Visualización de sedes de torneos mediante Google Maps.</li>
+                                <li>Marcadores personalizados para torneos y comercios asociados.</li>
+                                <li>Consulta de ubicaciones y beneficios disponibles.</li>
+                            </ul>
+
+                            <p>Tecnologías e infraestructura</p>
+                            <ul>
+                                <li>Android.</li>
+                                <li>Kotlin.</li>
+                                <li>Arquitectura MVVM y Clean Architecture.</li>
+                                <li>Firebase Authentication para autenticación de usuarios.</li>
+                                <li>Cloud Firestore para persistencia y sincronización de datos en tiempo real.</li>
+                                <li>Jetpack Compose y XML Layouts.</li>
+                                <li>Jetpack Navigation Component y ViewBinding.</li>
+                                <li>Kotlin Coroutines.</li>
+                                <li>Google Maps Platform.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="window">
+                        <div class="title-bar">
+                            <div class="title-bar-text">
+                                Enlaces
+                            </div>
+                        </div>
+
+                        <div class="window-body">
+                            <a href="https://github.com/a256b/EnroqueApp" target="_blank">
+                                <button>Repositorio</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

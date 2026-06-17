@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Essenza Royale</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .galeria-detalle {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1px;
+        }
+
+        .galeria-detalle a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 100%;
+            background: #C0C0C0;
+        }
+
+        .galeria-detalle img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="window app">
+        <section>
+            <div class="window section">
+
+                <div class="title-bar">
+                    <div class="title-bar-text">
+                        Essenza Royale
+                    </div>
+
+                    <div class="title-bar-controls">
+                        <button aria-label="Minimize"></button>
+                        <button aria-label="Maximize"></button>
+                        <button aria-label="Close"></button>
+                    </div>
+                </div>
+
+                <div class="window-body">
+
+                    <a href="../proyectos.html">
+                        <button><< Volver a proyectos</button>
+                    </a>
+
+                    <a href="../index.html">
+                        <button><< Ir al inicio</button>
+                    </a>
+
+                    <hr>
+
+                    <h2>Essenza Royale</h2>
+
+                    <p>
+                        Plataforma e-commerce para la venta de perfumes desarrollada con Laravel, React y PostgreSQL (Neon).
+                        <br><br>Permite a los clientes explorar un catálogo de perfumes, buscar y seleccionar las variantes disponibles, consultar el historial de compras y realizar pagos mediante integración con Mercado Pago.
+                        <br><br>Por su parte, los administradores cuentan con un panel de gestión para administrar productos, descuentos, stock y ventas.
+                    </p>
+
+                    <div class="window">
+
+                        <div class="title-bar">
+                            <div class="title-bar-text">
+                                Galería (5)
+                            </div>
+                        </div>
+
+                        <div class="window-body">
+
+                            <div class="galeria-detalle">
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560880/landing-page_kpin29.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560880/landing-page_kpin29.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560953/front-perfumes_wlhpst.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560953/front-perfumes_wlhpst.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560951/front-detalle-perfume_x8jy18.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560951/front-detalle-perfume_x8jy18.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560921/back-descuentos_qtgvsy.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560921/back-descuentos_qtgvsy.png">
+                                </a>
+
+                                <a href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560922/back-detalle-perfume_kyy1mn.png" target="_blank">
+                                    <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/v1781560922/back-detalle-perfume_kyy1mn.png">
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="window">
+
+                        <div class="title-bar">
+                            <div class="title-bar-text">
+                                Funcionalidades principales
+                            </div>
+                        </div>
+
+                        <div class="window-body">
+                            <p>Backend</p>
+                                <ul>
+                                    <li>Gestión de perfumes y variantes desde panel administrativo.</li>
+                                    <li>Control de stock y actualización automática durante las compras.</li>
+                                    <li>Registro de ventas y detalle de productos vendidos.</li>
+                                    <li>Administración y notificaciones sobre descuentos.</li>
+                                    <li>API REST desarrollada en Laravel.</li>
+                                </ul>
+
+                            <p>Frontend</p>
+                                <ul>
+                                    <li>Catálogo de perfumes con imágenes, descripciones y variantes por volumen.</li>
+                                    <li>Carrito de compras con actualización dinámica de cantidades y totales.</li>
+                                    <li>Aplicación automática de descuentos y promociones.</li>
+                                    <li>Consulta del historial de compras.</li>
+                                    <li>Integración con Mercado Pago.</li>
+                                    <li>Diseño responsive.</li>
+                                </ul>
+
+                            <p>Infraestructura</p>
+                                <ul>
+                                    <li>Aplicación desplegada en Vercel.</li>
+                                    <li>Base de datos PostgreSQL alojada en Neon.</li>
+                                    <li>Arquitectura desacoplada entre frontend, backend y base de datos.</li>
+                                </ul>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="window">
+
+                        <div class="title-bar">
+                            <div class="title-bar-text">
+                                Enlaces
+                            </div>
+                        </div>
+
+                        <div class="window-body">
+
+                            <a href="https://essenzaroyalefrontend.vercel.app/" target="_blank">
+                                <button>Demo página</button>
+                            </a>
+
+                            <a href="https://essenzaroyalebackend.vercel.app/" target="_blank">
+                                <button>Demo panel</button>
+                            </a>
+
+                            <a href="https://github.com/ToroSantiago/aplicaciones_web_frontend" target="_blank">
+                                <button>Repositorio frontend</button>
+                            </a>
+
+                            <a href="https://github.com/ToroSantiago/aplicaciones_web_backend" target="_blank">
+                                <button>Repositorio backend</button>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
