@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nombre Apellido — Desarrollador Full Stack</title>
+
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --text: #e9ecf5;
+    --muted: #7d88ab;
+    --accent: #4f7fe0;
+    --border: rgba(79, 127, 224, 0.18);
+    --card-bg: rgba(79, 127, 224, 0.06);
+    --max-width: 1200px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--muted);
+    font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ---------- Nav ---------- */
+
+  .nav {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    position: relative;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 28px 32px;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 40px;
+  }
+
+  .nav-menu a {
+    font-size: 15px;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: var(--text);
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .nav-toggle-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 96px 32px 64px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .hero-text .role {
+    margin-top: 20px;
+    font-size: 20px;
+    color: var(--muted);
+  }
+
+  .hero-text .description {
+    margin-top: 28px;
+    max-width: 560px;
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  .hero-text .cta {
+    margin-top: 24px;
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  .hero-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .link-btn:hover {
+    background: var(--card-bg);
+    border-color: var(--accent);
+  }
+
+  .link-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* ---------- Divider ---------- */
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 56px 0 40px;
+  }
+
+  /* ---------- Skills ---------- */
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .skill-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+
+  .skill-card .bullet {
+    color: var(--accent);
+    font-size: 13px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tags span {
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-links {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .link-btn {
+      flex: 1 1 auto;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .nav-inner {
+      padding: 20px;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 20px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 20px;
+    }
+
+    .nav-menu.open {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero {
+      padding: 56px 20px 48px;
+    }
+
+    .hero-links {
+      flex-direction: column;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#inicio" class="active">./Inicio</a>
+      <a href="#proyectos">./Proyectos</a>
+      <a href="#experiencia">./Experiencia</a>
+      <a href="#certificaciones">./Certificaciones</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="inicio" class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Nombre Apellido</h1>
+        <p class="role">Desarrollador Full Stack</p>
+        <p class="description">
+          Construyo productos web rápidos, prolijos y fáciles de mantener. Me enfoco en escribir código claro y en resolver problemas reales, no solo en hacer que funcione.
+        </p>
+        <p class="cta">¿Tenés un proyecto en mente? Escribime, respondo rápido.</p>
+      </div>
+
+      <div class="hero-links">
+        <a class="link-btn" href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+          </svg>
+          LinkedIn
+        </a>
+        <a class="link-btn" href="https://github.com/tu-usuario" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          GitHub
+        </a>
+        <a class="link-btn" href="mailto:tu@email.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 6-10 7L2 6"></path>
+          </svg>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3><span class="bullet">▸</span> Backend</h3>
+        <div class="tags">
+          <span>Java</span>
+          <span>PHP (Laravel)</span>
+          <span>Kotlin (Android)</span>
+          <span>Python</span>
+          <span>C</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="bullet">▸</span> Frontend</h3>
+        <div class="tags">
+          <span>React</span>
+          <span>HTML/CSS</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="bullet">▸</span> Bases de datos</h3>
+        <div class="tags">
+          <span>PostgreSQL</span>
+          <span>MySQL</span>
+          <span>SQLite</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="bullet">▸</span> Otras herramientas</h3>
+        <div class="tags">
+          <span>GitHub/GitLab</span>
+          <span>Linux</span>
+          <span>Vercel</span>
+          <span>Firebase (Firestore)</span>
+          <span>Neon</span>
+          <span>Docker</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  function closeMenu() {
+    navMenu.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navMenu.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') closeMenu();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) closeMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+</script>
+
+</body>
+</html>
