@@ -7,12 +7,12 @@
 
 <style>
   :root {
-    --bg: #0a0e1a;
-    --text: #e9ecf5;
-    --muted: #7d88ab;
-    --accent: #4f7fe0;
-    --border: rgba(79, 127, 224, 0.18);
-    --card-bg: rgba(79, 127, 224, 0.06);
+    --bg: #0b0d12;
+    --text: #f3f5fa;
+    --muted: #a3acc4;
+    --accent: #86aed6;
+    --border: rgba(134, 174, 214, 0.2);
+    --card-bg: rgba(134, 174, 214, 0.07);
     --max-width: 1200px;
   }
 
@@ -171,6 +171,82 @@
     height: 1px;
     background: var(--border);
     margin: 56px 0 40px;
+  }
+
+  /* ---------- Sections ---------- */
+
+  .section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 48px;
+  }
+
+  .section-title .bullet {
+    color: var(--accent);
+    font-size: 18px;
+  }
+
+  /* ---------- Timeline ---------- */
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    margin-left: 8px;
+    padding-left: 32px;
+    border-left: 1px solid var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -37px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+
+  .timeline-date {
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  .timeline-role {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .timeline-company {
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .timeline-description {
+    margin-top: 12px;
+    max-width: 640px;
+    font-size: 15px;
+    color: var(--muted);
   }
 
   /* ---------- Skills ---------- */
@@ -377,6 +453,62 @@
           <span>Neon</span>
           <span>Docker</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia" class="section">
+    <h2 class="section-title"><span class="bullet">▸</span>Experiencia</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-marker"></span>
+        <span class="timeline-date">2023 — Presente</span>
+        <h3 class="timeline-role">Desarrollador Full Stack Senior</h3>
+        <p class="timeline-company">Empresa Actual S.A.</p>
+        <p class="timeline-description">
+          Lidero el desarrollo de nuevas features end-to-end, defino arquitectura de servicios y mentoreo a desarrolladores junior del equipo.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-marker"></span>
+        <span class="timeline-date">2021 — 2023</span>
+        <h3 class="timeline-role">Desarrollador Full Stack</h3>
+        <p class="timeline-company">Empresa B</p>
+        <p class="timeline-description">
+          Desarrollé y mantuve APIs REST y interfaces de usuario para el producto principal, trabajando en un equipo ágil con entregas semanales.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-marker"></span>
+        <span class="timeline-date">2020 — 2021</span>
+        <h3 class="timeline-role">Desarrollador Backend</h3>
+        <p class="timeline-company">Empresa C</p>
+        <p class="timeline-description">
+          Diseñé e implementé servicios backend en Node.js, optimizando consultas y modelado de datos en PostgreSQL.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-marker"></span>
+        <span class="timeline-date">2019 — 2020</span>
+        <h3 class="timeline-role">Desarrollador Frontend Jr.</h3>
+        <p class="timeline-company">Empresa D</p>
+        <p class="timeline-description">
+          Construí componentes reutilizables en React y colaboré en la migración de una interfaz legacy a una arquitectura moderna.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-marker"></span>
+        <span class="timeline-date">2018 — 2019</span>
+        <h3 class="timeline-role">Practicante de Desarrollo</h3>
+        <p class="timeline-company">Empresa E</p>
+        <p class="timeline-description">
+          Di mis primeros pasos como desarrollador dando soporte a un equipo de desarrollo web, aprendiendo buenas prácticas de código y trabajo en equipo.
+        </p>
       </div>
     </div>
   </section>
