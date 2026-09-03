@@ -102,9 +102,9 @@
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 48px;
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
   }
 
   .hero-text h1 {
@@ -116,9 +116,13 @@
   }
 
   .hero-text .role {
+    display: inline-flex;
     margin-top: 20px;
-    font-size: 20px;
-    color: var(--muted);
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--text);
   }
 
   .hero-text .description {
@@ -136,21 +140,23 @@
 
   .hero-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 14px;
+    margin-top: 36px;
   }
 
   .link-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 16px 20px;
+    padding: 14px 22px;
     border: 1px solid var(--border);
     border-radius: 8px;
     font-size: 15px;
     color: var(--text);
-    transition: background 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
   }
 
   .link-btn:hover {
@@ -165,12 +171,17 @@
     flex-shrink: 0;
   }
 
-  /* ---------- Divider ---------- */
+  /* ---------- Hero panel ---------- */
 
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 56px 0 40px;
+  .hero-panel {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--card-bg);
+    overflow: hidden;
+  }
+
+  .hero-panel-body {
+    padding: 24px;
   }
 
   /* ---------- Sections ---------- */
@@ -332,15 +343,15 @@
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .skill-card {
-    background: var(--card-bg);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 24px;
+    padding: 20px;
   }
 
   .skill-card h3 {
@@ -391,10 +402,6 @@
     .projects-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-
-    .skills-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
 
   @media (max-width: 640px) {
@@ -441,6 +448,16 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* ---------- Footer ---------- */
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
 </style>
 </head>
 <body>
@@ -471,74 +488,76 @@
           Construyo productos web rápidos, prolijos y fáciles de mantener. Me enfoco en escribir código claro y en resolver problemas reales, no solo en hacer que funcione.
         </p>
         <p class="cta">¿Tenés un proyecto en mente? Escribime, respondo rápido.</p>
-      </div>
 
-      <div class="hero-links">
-        <a class="link-btn" href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-          </svg>
-          LinkedIn
-        </a>
-        <a class="link-btn" href="https://github.com/tu-usuario" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-          GitHub
-        </a>
-        <a class="link-btn" href="mailto:tu@email.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-            <path d="m22 6-10 7L2 6"></path>
-          </svg>
-          Email
-        </a>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3><span class="bullet">▸</span> Backend</h3>
-        <div class="tags">
-          <span>Java</span>
-          <span>PHP (Laravel)</span>
-          <span>Kotlin (Android)</span>
-          <span>Python</span>
-          <span>C</span>
+        <div class="hero-links">
+          <a class="link-btn" href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            LinkedIn
+          </a>
+          <a class="link-btn" href="https://github.com/tu-usuario" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            GitHub
+          </a>
+          <a class="link-btn" href="mailto:tu@email.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 6-10 7L2 6"></path>
+            </svg>
+            Email
+          </a>
         </div>
       </div>
 
-      <div class="skill-card">
-        <h3><span class="bullet">▸</span> Frontend</h3>
-        <div class="tags">
-          <span>React</span>
-          <span>HTML/CSS</span>
-          <span>JavaScript</span>
-        </div>
-      </div>
+      <div class="hero-panel">
+        <div class="hero-panel-body">
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h3><span class="bullet">▸</span> Backend</h3>
+              <div class="tags">
+                <span>Java</span>
+                <span>PHP (Laravel)</span>
+                <span>Kotlin (Android)</span>
+                <span>Python</span>
+                <span>C</span>
+              </div>
+            </div>
 
-      <div class="skill-card">
-        <h3><span class="bullet">▸</span> Bases de datos</h3>
-        <div class="tags">
-          <span>PostgreSQL</span>
-          <span>MySQL</span>
-          <span>SQLite</span>
-        </div>
-      </div>
+            <div class="skill-card">
+              <h3><span class="bullet">▸</span> Frontend</h3>
+              <div class="tags">
+                <span>React</span>
+                <span>HTML/CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
 
-      <div class="skill-card">
-        <h3><span class="bullet">▸</span> Otras herramientas</h3>
-        <div class="tags">
-          <span>GitHub/GitLab</span>
-          <span>Linux</span>
-          <span>Vercel</span>
-          <span>Firebase (Firestore)</span>
-          <span>Neon</span>
-          <span>Docker</span>
+            <div class="skill-card">
+              <h3><span class="bullet">▸</span> Bases de datos</h3>
+              <div class="tags">
+                <span>PostgreSQL</span>
+                <span>MySQL</span>
+                <span>SQLite</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3><span class="bullet">▸</span> Otras herramientas</h3>
+              <div class="tags">
+                <span>GitHub/GitLab</span>
+                <span>Linux</span>
+                <span>Vercel</span>
+                <span>Firebase (Firestore)</span>
+                <span>Neon</span>
+                <span>Docker</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -675,6 +694,10 @@
     </div>
   </section>
 </main>
+
+<footer class="site-footer">
+  © 2026 Nombre Apellido. Todos los derechos reservados.
+</footer>
 
 <script>
   const navToggle = document.getElementById('navToggle');
