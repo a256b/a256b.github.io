@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nombre Apellido — Desarrollador Full Stack</title>
 
+<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
 <style>
   :root {
     --bg: #0b0d12;
@@ -339,48 +341,37 @@
     transform: translateX(3px);
   }
 
-  /* ---------- Skills ---------- */
+  /* ---------- Tech grid ---------- */
 
-  .skills-grid {
+  .tech-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
 
-  .skill-card {
+  .tech-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 12px;
+    text-align: center;
   }
 
-  .skill-card h3 {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
+  .tech-icon {
+    font-size: 28px;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .tech-name {
+    font-size: 13px;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 18px;
-  }
-
-  .skill-card .bullet {
-    color: var(--accent);
-    font-size: 13px;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .tags span {
-    padding: 7px 12px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: 13px;
-    color: var(--muted);
   }
 
   /* ---------- Responsive ---------- */
@@ -401,6 +392,10 @@
 
     .projects-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -444,8 +439,8 @@
       grid-template-columns: 1fr;
     }
 
-    .skills-grid {
-      grid-template-columns: 1fr;
+    .tech-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -516,46 +511,42 @@
 
       <div class="hero-panel">
         <div class="hero-panel-body">
-          <div class="skills-grid">
-            <div class="skill-card">
-              <h3><span class="bullet">▸</span> Backend</h3>
-              <div class="tags">
-                <span>Java</span>
-                <span>PHP (Laravel)</span>
-                <span>Kotlin (Android)</span>
-                <span>Python</span>
-                <span>C</span>
-              </div>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <i class="devicon-java-plain-wordmark"></i>
             </div>
-
-            <div class="skill-card">
-              <h3><span class="bullet">▸</span> Frontend</h3>
-              <div class="tags">
-                <span>React</span>
-                <span>HTML/CSS</span>
-                <span>JavaScript</span>
-              </div>
+            <div class="tech-card">
+              <i class="devicon-python-plain-wordmark"></i>
             </div>
-
-            <div class="skill-card">
-              <h3><span class="bullet">▸</span> Bases de datos</h3>
-              <div class="tags">
-                <span>PostgreSQL</span>
-                <span>MySQL</span>
-                <span>SQLite</span>
-              </div>
+            <div class="tech-card">
+              <i class="devicon-kotlin-plain-wordmark"></i>
             </div>
-
-            <div class="skill-card">
-              <h3><span class="bullet">▸</span> Otras herramientas</h3>
-              <div class="tags">
-                <span>GitHub/GitLab</span>
-                <span>Linux</span>
-                <span>Vercel</span>
-                <span>Firebase (Firestore)</span>
-                <span>Neon</span>
-                <span>Docker</span>
-              </div>
+            <div class="tech-card">
+              <i class="devicon-android-plain-wordmark"></i>
+            </div>
+            <div class="tech-card">
+              <i class="devicon-php-plain"></i>
+            </div>
+            <div class="tech-card">
+              <i class="devicon-laravel-original-wordmark"></i>
+            </div>
+            <div class="tech-card">
+              <i class="devicon-c-original"></i>
+            </div>
+            <div class="tech-card">
+              <i class="devicon-react-original-wordmark"></i>
+            </div>
+            <div class="tech-card">
+              <i class="devicon-postgresql-plain-wordmark"></i>
+            </div>
+            <div class="tech-card">
+              <i class="devicon-github-original-wordmark"></i>
+            </div>
+            <div class="tech-card">
+              <i class="devicon-docker-plain-wordmark"></i>
+            </div>
+            <div class="tech-card">
+              <i class="devicon-linux-plain"></i>
             </div>
           </div>
         </div>
