@@ -45,7 +45,6 @@
   }
 
   .nav-inner {
-    position: relative;
     max-width: var(--max-width);
     margin: 0 auto;
     display: flex;
@@ -57,8 +56,8 @@
   .nav-menu {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 12px 20px;
+    flex-wrap: nowrap;
+    gap: 20px;
   }
 
   .nav-menu a {
@@ -77,26 +76,7 @@
     width: 1px;
     height: 16px;
     background: var(--border);
-  }
-
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 32px;
-    height: 32px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .nav-toggle-bar {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--text);
+    flex-shrink: 0;
   }
 
   /* ---------- Hero ---------- */
@@ -483,29 +463,41 @@
       padding: 20px;
     }
 
-    .nav-toggle {
-      display: flex;
+    .nav-menu {
+      font-size: 12px;
+      gap: 14px;
+    }
+
+    .nav-menu a {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .nav-inner {
+      padding: 14px;
     }
 
     .nav-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      flex-direction: column;
-      gap: 20px;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 20px;
+      gap: 10px;
     }
 
-    .nav-menu.open {
-      display: flex;
+    .nav-menu a {
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .nav-inner {
+      padding: 10px;
     }
 
-    .nav-menu .nav-divider {
-      display: none;
+    .nav-menu {
+      gap: 8px;
+    }
+
+    .nav-menu a {
+      font-size: 10px;
     }
   }
 
@@ -547,12 +539,7 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-    <nav class="nav-menu" id="navMenu">
+    <nav class="nav-menu">
       <a href="#inicio" class="active">Inicio</a>
       <span class="nav-divider"></span>
       <a href="#proyectos">Proyectos</a>
@@ -848,35 +835,6 @@
 <footer class="site-footer">
   © 2026 Nombre Apellido. Todos los derechos reservados.
 </footer>
-
-<script>
-  const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  function closeMenu() {
-    navMenu.classList.remove('open');
-    navToggle.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  }
-
-  navToggle.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('open');
-    navToggle.classList.toggle('open', isOpen);
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  navMenu.addEventListener('click', (event) => {
-    if (event.target.tagName === 'A') closeMenu();
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) closeMenu();
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMenu();
-  });
-</script>
 
 </body>
 </html>
