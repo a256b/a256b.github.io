@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos — Nombre Apellido</title>
+
+<style>
+  :root {
+    --bg: #0b0d12;
+    --text: #f3f5fa;
+    --muted: #a3acc4;
+    --accent: #0a84ff;
+    --border: rgba(10, 132, 255, 0.22);
+    --card-bg: rgba(10, 132, 255, 0.07);
+    --max-width: 1200px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--muted);
+    font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ---------- Nav ---------- */
+
+  .nav {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    position: relative;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+  }
+
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .nav-back:hover {
+    color: var(--accent);
+  }
+
+  .nav-back svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    flex-shrink: 0;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 40px;
+  }
+
+  .nav-menu a {
+    font-size: 15px;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: var(--text);
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .nav-toggle-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+  }
+
+  /* ---------- Sections ---------- */
+
+  .section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+    border-top: 1px solid var(--border);
+  }
+
+  main > .section:first-of-type {
+    border-top: none;
+    padding-top: 96px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 48px;
+  }
+
+  .section-title .bullet {
+    color: var(--accent);
+    font-size: 18px;
+  }
+
+  /* ---------- Projects ---------- */
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .projects-grid-more {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+  }
+
+  .project-image {
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-image svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--muted);
+    opacity: 0.5;
+  }
+
+  .project-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 24px 24px;
+  }
+
+  .project-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .project-description {
+    flex: 1;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--accent);
+  }
+
+  .project-link svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    transition: transform 0.2s ease;
+  }
+
+  .project-link:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 900px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid-more {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .nav-inner {
+      padding: 20px;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 20px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 20px;
+    }
+
+    .nav-menu.open {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .section {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .projects-grid-more {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------- Footer ---------- */
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-back" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5"></path>
+        <path d="m12 19-7-7 7-7"></path>
+      </svg>
+      Volver a Inicio
+    </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html#inicio">./Inicio</a>
+      <a href="index.html#proyectos" class="active">./Proyectos</a>
+      <a href="index.html#experiencia">./Experiencia</a>
+      <a href="index.html#certificaciones">./Certificaciones</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <h2 class="section-title"><span class="bullet">▸</span>Proyectos destacados</h2>
+
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Uno</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Dos</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Tres</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title"><span class="bullet">▸</span>Más proyectos</h2>
+
+    <div class="projects-grid-more">
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Cuatro</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Cinco</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Seis</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Siete</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Ocho</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Nueve</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Diez</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="m21 15-5-5L5 21"></path>
+          </svg>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Nombre del Proyecto Once</h3>
+          <p class="project-description">
+            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
+          </p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            Ver proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  © 2026 Nombre Apellido. Todos los derechos reservados.
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  function closeMenu() {
+    navMenu.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navMenu.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') closeMenu();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) closeMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+</script>
+
+</body>
+</html>
