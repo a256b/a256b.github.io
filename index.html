@@ -339,6 +339,88 @@
     transform: translateX(3px);
   }
 
+  /* ---------- Certifications ---------- */
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .cert-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px 24px;
+    transition: border-color 0.2s ease;
+  }
+
+  .cert-card:hover {
+    border-color: var(--accent);
+  }
+
+  .cert-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .cert-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .cert-badge svg {
+    width: 34px;
+    height: 34px;
+    stroke: var(--muted);
+    opacity: 0.5;
+  }
+
+  .cert-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .cert-meta {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--accent);
+  }
+
+  .cert-link svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    transition: transform 0.2s ease;
+  }
+
+  .cert-link:hover svg {
+    transform: translateX(3px);
+  }
+
   /* ---------- Tech grid ---------- */
 
   .tech-grid {
@@ -383,6 +465,10 @@
     .projects-grid {
       grid-template-columns: repeat(2, 1fr);
     }
+
+    .certs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: 640px) {
@@ -422,6 +508,10 @@
     }
 
     .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .certs-grid {
       grid-template-columns: 1fr;
     }
   }
@@ -651,6 +741,66 @@
         <p class="timeline-description">
           Di mis primeros pasos como desarrollador dando soporte a un equipo de desarrollo web, aprendiendo buenas prácticas de código y trabajo en equipo.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificaciones" class="section">
+    <h2 class="section-title"><span class="bullet">▸</span>Certificaciones</h2>
+
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"></circle>
+            <path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"></path>
+          </svg>
+        </div>
+        <h3 class="cert-title">Nombre del Certificado Uno</h3>
+        <p class="cert-meta">Institución Emisora · 2024</p>
+        <a class="cert-link" href="#" target="_blank" rel="noopener">
+          Ver credencial
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"></circle>
+            <path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"></path>
+          </svg>
+        </div>
+        <h3 class="cert-title">Nombre del Certificado Dos</h3>
+        <p class="cert-meta">Institución Emisora · 2023</p>
+        <a class="cert-link" href="#" target="_blank" rel="noopener">
+          Ver credencial
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"></circle>
+            <path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"></path>
+          </svg>
+        </div>
+        <h3 class="cert-title">Nombre del Certificado Tres</h3>
+        <p class="cert-meta">Institución Emisora · 2022</p>
+        <a class="cert-link" href="#" target="_blank" rel="noopener">
+          Ver credencial
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
