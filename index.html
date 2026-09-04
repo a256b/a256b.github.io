@@ -56,8 +56,9 @@
 
   .nav-menu {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 12px 40px;
+    gap: 12px 20px;
   }
 
   .nav-menu a {
@@ -70,6 +71,12 @@
   .nav-menu a:hover,
   .nav-menu a.active {
     color: var(--text);
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
   }
 
   .nav-toggle {
@@ -501,6 +508,10 @@
     .nav-menu.open {
       display: flex;
     }
+
+    .nav-menu .nav-divider {
+      display: none;
+    }
   }
 
   @media (max-width: 560px) {
@@ -542,10 +553,13 @@
       <span class="nav-toggle-bar"></span>
     </button>
     <nav class="nav-menu" id="navMenu">
-      <a href="#inicio" class="active">./Inicio</a>
-      <a href="#proyectos">./Proyectos</a>
-      <a href="#experiencia">./Experiencia</a>
-      <a href="#certificaciones">./Certificaciones</a>
+      <a href="#inicio" class="active">Inicio</a>
+      <span class="nav-divider"></span>
+      <a href="#proyectos">Proyectos</a>
+      <span class="nav-divider"></span>
+      <a href="#experiencia">Experiencia</a>
+      <span class="nav-divider"></span>
+      <a href="#certificaciones">Certificaciones</a>
     </nav>
   </div>
 </header>
