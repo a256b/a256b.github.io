@@ -45,12 +45,10 @@
   }
 
   .nav-inner {
-    position: relative;
     max-width: var(--max-width);
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 28px 32px;
   }
 
@@ -73,44 +71,6 @@
     height: 16px;
     stroke: currentColor;
     flex-shrink: 0;
-  }
-
-  .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 40px;
-  }
-
-  .nav-menu a {
-    font-size: 15px;
-    color: var(--muted);
-    white-space: nowrap;
-    transition: color 0.2s ease;
-  }
-
-  .nav-menu a:hover,
-  .nav-menu a.active {
-    color: var(--text);
-  }
-
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 32px;
-    height: 32px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .nav-toggle-bar {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--text);
   }
 
   /* ---------- Sections ---------- */
@@ -239,34 +199,11 @@
     }
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 560px) {
     .nav-inner {
       padding: 20px;
     }
 
-    .nav-toggle {
-      display: flex;
-    }
-
-    .nav-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      flex-direction: column;
-      gap: 20px;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 20px;
-    }
-
-    .nav-menu.open {
-      display: flex;
-    }
-  }
-
-  @media (max-width: 560px) {
     .section {
       padding-left: 20px;
       padding-right: 20px;
@@ -303,17 +240,6 @@
       </svg>
       Volver a Inicio
     </a>
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-    <nav class="nav-menu" id="navMenu">
-      <a href="index.html#inicio">./Inicio</a>
-      <a href="index.html#proyectos" class="active">./Proyectos</a>
-      <a href="index.html#experiencia">./Experiencia</a>
-      <a href="index.html#certificaciones">./Certificaciones</a>
-    </nav>
   </div>
 </header>
 
@@ -587,35 +513,6 @@
 <footer class="site-footer">
   © 2026 Nombre Apellido. Todos los derechos reservados.
 </footer>
-
-<script>
-  const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  function closeMenu() {
-    navMenu.classList.remove('open');
-    navToggle.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  }
-
-  navToggle.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('open');
-    navToggle.classList.toggle('open', isOpen);
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  navMenu.addEventListener('click', (event) => {
-    if (event.target.tagName === 'A') closeMenu();
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) closeMenu();
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMenu();
-  });
-</script>
 
 </body>
 </html>
