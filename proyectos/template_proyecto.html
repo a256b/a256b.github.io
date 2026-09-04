@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nombre del Proyecto — Nombre Apellido</title>
+
+<style>
+  :root {
+    --bg: #0b0d12;
+    --text: #f3f5fa;
+    --muted: #a3acc4;
+    --accent: #0a84ff;
+    --border: rgba(10, 132, 255, 0.22);
+    --card-bg: rgba(10, 132, 255, 0.07);
+    --max-width: 1200px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--muted);
+    font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ---------- Nav ---------- */
+
+  .nav {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 32px;
+  }
+
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .nav-back:hover {
+    color: var(--accent);
+  }
+
+  .nav-back svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    flex-shrink: 0;
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
+  }
+
+  .nav-back-secondary {
+    font-size: 14px;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .nav-back-secondary:hover {
+    color: var(--accent);
+  }
+
+  /* ---------- Sections ---------- */
+
+  .section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+    border-top: 1px solid var(--border);
+  }
+
+  main > .section:first-of-type {
+    border-top: none;
+    padding-top: 96px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 48px;
+  }
+
+  .section-title .bullet {
+    color: var(--accent);
+    font-size: 18px;
+  }
+
+  /* ---------- Project header ---------- */
+
+  .project-title-lg {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .project-subtitle {
+    margin-top: 16px;
+    max-width: 700px;
+    font-size: 18px;
+    color: var(--muted);
+  }
+
+  /* ---------- Carousel ---------- */
+
+  .carousel {
+    position: relative;
+    margin-top: 48px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--card-bg);
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.35s ease;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .carousel-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .carousel-placeholder svg {
+    width: 44px;
+    height: 44px;
+    stroke: var(--muted);
+    opacity: 0.5;
+  }
+
+  .carousel-placeholder span {
+    font-size: 13px;
+    color: var(--muted);
+    opacity: 0.7;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .carousel-arrow:hover {
+    border-color: var(--accent);
+    background: var(--card-bg);
+  }
+
+  .carousel-arrow svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+  }
+
+  .carousel-arrow-prev {
+    left: 16px;
+  }
+
+  .carousel-arrow-next {
+    right: 16px;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .carousel-dot.active {
+    background: var(--accent);
+    transform: scale(1.25);
+  }
+
+  /* ---------- Project content ---------- */
+
+  .project-content {
+    max-width: 760px;
+  }
+
+  .project-content p {
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  .project-content p + p {
+    margin-top: 16px;
+  }
+
+  /* ---------- Project links ---------- */
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .link-btn:hover {
+    background: var(--card-bg);
+    border-color: var(--accent);
+  }
+
+  .link-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 640px) {
+    .carousel-arrow {
+      width: 34px;
+      height: 34px;
+    }
+
+    .carousel-arrow svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .nav-inner {
+      padding: 20px;
+    }
+
+    .section {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  /* ---------- Footer ---------- */
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-back" href="../proyectos.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5"></path>
+        <path d="m12 19-7-7 7-7"></path>
+      </svg>
+      Proyectos
+    </a>
+    <span class="nav-divider"></span>
+    <a class="nav-back-secondary" href="../index.html">Inicio</a>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <h1 class="project-title-lg">Nombre del Proyecto</h1>
+    <p class="project-subtitle">
+      Breve descripción del proyecto: una o dos líneas que resuman de qué se trata y qué problema resuelve.
+    </p>
+
+    <div class="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <!-- Reemplazar por: <img src="URL_DE_CLOUDINARY" alt="Captura del proyecto"> -->
+          <div class="carousel-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <path d="m21 15-5-5L5 21"></path>
+            </svg>
+            <span>Captura 1</span>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <!-- Reemplazar por: <img src="URL_DE_CLOUDINARY" alt="Captura del proyecto"> -->
+          <div class="carousel-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <path d="m21 15-5-5L5 21"></path>
+            </svg>
+            <span>Captura 2</span>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <!-- Reemplazar por: <img src="URL_DE_CLOUDINARY" alt="Captura del proyecto"> -->
+          <div class="carousel-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <path d="m21 15-5-5L5 21"></path>
+            </svg>
+            <span>Captura 3</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" type="button" aria-label="Imagen anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+      </button>
+      <button class="carousel-arrow carousel-arrow-next" id="carouselNext" type="button" aria-label="Imagen siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </button>
+
+      <div class="carousel-dots" id="carouselDots">
+        <button class="carousel-dot active" type="button" data-index="0" aria-label="Ir a la captura 1"></button>
+        <button class="carousel-dot" type="button" data-index="1" aria-label="Ir a la captura 2"></button>
+        <button class="carousel-dot" type="button" data-index="2" aria-label="Ir a la captura 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title"><span class="bullet">▸</span>Descripción</h2>
+    <div class="project-content">
+      <p>
+        Acá va la descripción detallada del proyecto: en qué consiste, qué problema resuelve y para quién.
+      </p>
+      <p>
+        Funcionalidades principales, decisiones técnicas relevantes y cualquier detalle que valga la pena destacar sobre cómo está construido.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title"><span class="bullet">▸</span>Enlaces</h2>
+    <div class="project-links">
+      <a class="link-btn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        Repositorio
+      </a>
+      <a class="link-btn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+        Ver despliegue
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  © 2026 Nombre Apellido. Todos los derechos reservados.
+</footer>
+
+<script>
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const slideCount = document.querySelectorAll('.carousel-slide').length;
+  let currentIndex = 0;
+
+  function goToSlide(index) {
+    currentIndex = (index + slideCount) % slideCount;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+  }
+
+  prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => goToSlide(Number(dot.dataset.index)));
+  });
+</script>
+
+</body>
+</html>
