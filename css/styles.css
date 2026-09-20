@@ -32,7 +32,7 @@ a{text-decoration:none;color:inherit;}
 
 .timeline-dot{position:absolute;left:-45px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--border);}
 
-.cert-num{width:44px;height:44px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Roboto',sans-serif;font-weight:700;font-size:17px;color:var(--accent);}
+.cert-icon{width:44px;height:44px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Material Symbols Outlined';font-size:22px;color:var(--accent);}
 
 .site-footer{background:var(--surface);border-top:1px solid var(--border);border-radius:28px 28px 0 0;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center;padding:36px 56px;box-shadow:0 -8px 24px rgba(0,0,0,0.28);}
 
