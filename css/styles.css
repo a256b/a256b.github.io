@@ -55,11 +55,13 @@ a{text-decoration:none;color:inherit;}
 
 .badge-c{font-family:'Roboto',sans-serif;font-size:12px;font-weight:500;color:var(--text-muted);background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:6px 14px;}
 
-.link-c{display:inline-flex;align-items:center;gap:4px;font-weight:500;}
+.link-c{display:inline-flex;align-items:center;gap:6px;font-weight:500;padding:8px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--border);transition:border-color .2s ease,background .2s ease;}
+.link-c:hover{border-color:var(--accent);background:var(--surface-2);}
 .link-c .arrow-ic{display:inline-block;transition:transform .2s ease;}
 .link-c:hover .arrow-ic{transform:translateX(4px);}
 
-.back-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;padding:8px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--border);transition:border-color .2s ease,background .2s ease;}
+.back-link:hover{border-color:var(--accent);background:var(--surface-2);}
 .back-link .arrow-ic{display:inline-block;transition:transform .2s ease;}
 .back-link:hover .arrow-ic{transform:translateX(-4px);}
 
