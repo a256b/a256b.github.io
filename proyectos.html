@@ -1,520 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyectos — Nombre Apellido</title>
-
-<style>
-  :root {
-    --bg: #0b0d12;
-    --text: #f3f5fa;
-    --muted: #a3acc4;
-    --accent: #0a84ff;
-    --border: rgba(10, 132, 255, 0.22);
-    --card-bg: rgba(10, 132, 255, 0.07);
-    --max-width: 1200px;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background: var(--bg);
-    color: var(--muted);
-    font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
-    line-height: 1.6;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  /* ---------- Nav ---------- */
-
-  .nav {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    padding: 28px 32px;
-  }
-
-  .nav-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: var(--muted);
-    white-space: nowrap;
-    transition: color 0.2s ease;
-  }
-
-  .nav-back:hover {
-    color: var(--accent);
-  }
-
-  .nav-back svg {
-    width: 16px;
-    height: 16px;
-    stroke: currentColor;
-    flex-shrink: 0;
-  }
-
-  /* ---------- Sections ---------- */
-
-  .section {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 64px 32px 96px;
-    border-top: 1px solid var(--border);
-  }
-
-  main > .section:first-of-type {
-    border-top: none;
-    padding-top: 96px;
-  }
-
-  .section-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 48px;
-  }
-
-  .section-title .bullet {
-    color: var(--accent);
-    font-size: 18px;
-  }
-
-  /* ---------- Projects ---------- */
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .projects-grid-more {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: border-color 0.2s ease;
-  }
-
-  .project-card:hover {
-    border-color: var(--accent);
-  }
-
-  .project-image {
-    aspect-ratio: 16 / 9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .project-image svg {
-    width: 40px;
-    height: 40px;
-    stroke: var(--muted);
-    opacity: 0.5;
-  }
-
-  .project-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 20px 24px 24px;
-  }
-
-  .project-title {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .project-description {
-    flex: 1;
-    margin-top: 10px;
-    font-size: 14px;
-    color: var(--muted);
-  }
-
-  .project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    width: fit-content;
-    margin-top: 18px;
-    font-size: 14px;
-    color: var(--accent);
-  }
-
-  .project-link svg {
-    width: 14px;
-    height: 14px;
-    stroke: currentColor;
-    transition: transform 0.2s ease;
-  }
-
-  .project-link:hover svg {
-    transform: translateX(3px);
-  }
-
-  /* ---------- Responsive ---------- */
-
-  @media (max-width: 900px) {
-    .projects-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .projects-grid-more {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .nav-inner {
-      padding: 20px;
-    }
-  }
-
-  @media (max-width: 560px) {
-    .section {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .projects-grid-more {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* ---------- Footer ---------- */
-
-  .site-footer {
-    border-top: 1px solid var(--border);
-    padding: 28px 32px;
-    text-align: center;
-    font-size: 13px;
-    color: var(--muted);
-  }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio — Proyectos</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="page-shell">
 
-<header class="nav">
-  <div class="nav-inner">
-    <a class="nav-back" href="index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M19 12H5"></path>
-        <path d="m12 19-7-7 7-7"></path>
-      </svg>
-      Inicio
-    </a>
-  </div>
-</header>
+<nav class="site-nav">
+<div class="nav-pill" style="justify-content:flex-start;">
+<a href="index.html" class="back-link" style="color:var(--accent);"><span class="arrow-ic">&lt;-</span> Volver al inicio</a>
+</div>
+</nav>
 
-<main>
-  <section class="section">
-    <h2 class="section-title"><span class="bullet">▸</span>Proyectos destacados</h2>
+<section style="position:relative;max-width:1140px;margin:0 auto;padding:50px 56px 10px;">
+<div style="text-align:center;margin:0 0 40px;">
+<div class="section-divider"></div>
+<h2 style="margin:0;font-family:'Roboto',sans-serif;font-weight:700;font-size:38px;">Proyectos</h2>
+<p style="margin:14px auto 0;max-width:520px;font-size:15px;line-height:1.7;color:var(--text-muted);">Una selección de los proyectos en los que trabajé, desde aplicaciones completas hasta herramientas más pequeñas.</p>
+</div>
+</section>
 
-    <div class="projects-grid">
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Uno</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
+<section style="position:relative;padding:0 56px 20px;">
+<div style="max-width:1140px;margin:0 auto;">
+<div class="pgrid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;">
 
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Dos</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
+<div class="pcard-c">
+<div class="thumb-box" style="height:180px;margin:16px 16px 0;border-radius:20px;">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="position:relative;color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:24px;">
+<h3 style="margin:0 0 10px;font-family:'Roboto',sans-serif;font-weight:500;font-size:20px;">[Nombre del Proyecto 1]</h3>
+<p style="margin:0 0 16px;font-size:14px;line-height:1.6;color:var(--text-muted);">[Breve descripción: qué problema resuelve y cuál fue tu rol en el desarrollo.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;">
+<span class="badge-c">React</span><span class="badge-c">TypeScript</span><span class="badge-c">Node.js</span>
+</div>
+<div style="text-align:center;margin-top:16px;">
+<a href="proyecto.html" class="link-c" style="font-size:14px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
 
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Tres</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
+<div class="pcard-c">
+<div class="thumb-box" style="height:180px;margin:16px 16px 0;border-radius:20px;">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="position:relative;color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:24px;">
+<h3 style="margin:0 0 10px;font-family:'Roboto',sans-serif;font-weight:500;font-size:20px;">[Nombre del Proyecto 2]</h3>
+<p style="margin:0 0 16px;font-size:14px;line-height:1.6;color:var(--text-muted);">[Breve descripción: qué problema resuelve y cuál fue tu rol en el desarrollo.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;">
+<span class="badge-c">Python</span><span class="badge-c">Django</span><span class="badge-c">PostgreSQL</span>
+</div>
+<div style="text-align:center;margin-top:16px;">
+<a href="proyecto.html" class="link-c" style="font-size:14px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
 
-  <section class="section">
-    <h2 class="section-title"><span class="bullet">▸</span>Más proyectos</h2>
+<div class="pcard-c">
+<div class="thumb-box" style="height:180px;margin:16px 16px 0;border-radius:20px;">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="position:relative;color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:24px;">
+<h3 style="margin:0 0 10px;font-family:'Roboto',sans-serif;font-weight:500;font-size:20px;">[Nombre del Proyecto 3]</h3>
+<p style="margin:0 0 16px;font-size:14px;line-height:1.6;color:var(--text-muted);">[Breve descripción: qué problema resuelve y cuál fue tu rol en el desarrollo.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;">
+<span class="badge-c">Vue.js</span><span class="badge-c">Firebase</span><span class="badge-c">Tailwind</span>
+</div>
+<div style="text-align:center;margin-top:16px;">
+<a href="proyecto.html" class="link-c" style="font-size:14px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
 
-    <div class="projects-grid-more">
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Cuatro</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
+</div>
+</div>
+</section>
 
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Cinco</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
+<section style="position:relative;padding:0 56px 70px;">
+<div style="max-width:1140px;margin:0 auto;">
 
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Seis</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
+<div style="text-align:center;margin:20px 0 28px;">
+<h3 style="margin:0;font-family:'Roboto',sans-serif;font-weight:600;font-size:22px;color:var(--text);">Más proyectos</h3>
+</div>
 
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Siete</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
+<div class="pgrid4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;">
 
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Ocho</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
+<div class="pcard-c">
+<div class="thumb-box" style="height:140px;margin:14px 14px 0;border-radius:16px;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:20px;">
+<h3 style="margin:0 0 8px;font-family:'Roboto',sans-serif;font-weight:500;font-size:17px;">[Nombre del Proyecto 4]</h3>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.55;color:var(--text-muted);">[Breve descripción del proyecto.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;">
+<span class="badge-c" style="font-size:11px;padding:5px 12px;">React</span><span class="badge-c" style="font-size:11px;padding:5px 12px;">Next.js</span>
+</div>
+<div style="text-align:center;margin-top:12px;">
+<a href="proyecto.html" class="link-c" style="font-size:13px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
 
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Nueve</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
+<div class="pcard-c">
+<div class="thumb-box" style="height:140px;margin:14px 14px 0;border-radius:16px;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:20px;">
+<h3 style="margin:0 0 8px;font-family:'Roboto',sans-serif;font-weight:500;font-size:17px;">[Nombre del Proyecto 5]</h3>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.55;color:var(--text-muted);">[Breve descripción del proyecto.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;">
+<span class="badge-c" style="font-size:11px;padding:5px 12px;">Node.js</span><span class="badge-c" style="font-size:11px;padding:5px 12px;">Express</span>
+</div>
+<div style="text-align:center;margin-top:12px;">
+<a href="proyecto.html" class="link-c" style="font-size:13px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
 
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Diez</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
+<div class="pcard-c">
+<div class="thumb-box" style="height:140px;margin:14px 14px 0;border-radius:16px;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:20px;">
+<h3 style="margin:0 0 8px;font-family:'Roboto',sans-serif;font-weight:500;font-size:17px;">[Nombre del Proyecto 6]</h3>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.55;color:var(--text-muted);">[Breve descripción del proyecto.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;">
+<span class="badge-c" style="font-size:11px;padding:5px 12px;">Vue.js</span><span class="badge-c" style="font-size:11px;padding:5px 12px;">Nuxt</span>
+</div>
+<div style="text-align:center;margin-top:12px;">
+<a href="proyecto.html" class="link-c" style="font-size:13px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
 
-      <article class="project-card">
-        <div class="project-image">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <path d="m21 15-5-5L5 21"></path>
-          </svg>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Nombre del Proyecto Once</h3>
-          <p class="project-description">
-            Breve descripción del proyecto: qué problema resuelve, qué hiciste y con qué tecnologías está construido.
-          </p>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            Ver proyecto
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
-</main>
+<div class="pcard-c">
+<div class="thumb-box" style="height:140px;margin:14px 14px 0;border-radius:16px;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:20px;">
+<h3 style="margin:0 0 8px;font-family:'Roboto',sans-serif;font-weight:500;font-size:17px;">[Nombre del Proyecto 7]</h3>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.55;color:var(--text-muted);">[Breve descripción del proyecto.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;">
+<span class="badge-c" style="font-size:11px;padding:5px 12px;">Python</span><span class="badge-c" style="font-size:11px;padding:5px 12px;">Flask</span>
+</div>
+<div style="text-align:center;margin-top:12px;">
+<a href="proyecto.html" class="link-c" style="font-size:13px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
+
+<div class="pcard-c">
+<div class="thumb-box" style="height:140px;margin:14px 14px 0;border-radius:16px;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:20px;">
+<h3 style="margin:0 0 8px;font-family:'Roboto',sans-serif;font-weight:500;font-size:17px;">[Nombre del Proyecto 8]</h3>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.55;color:var(--text-muted);">[Breve descripción del proyecto.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;">
+<span class="badge-c" style="font-size:11px;padding:5px 12px;">Java</span><span class="badge-c" style="font-size:11px;padding:5px 12px;">Spring</span>
+</div>
+<div style="text-align:center;margin-top:12px;">
+<a href="proyecto.html" class="link-c" style="font-size:13px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
+
+<div class="pcard-c">
+<div class="thumb-box" style="height:140px;margin:14px 14px 0;border-radius:16px;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:20px;">
+<h3 style="margin:0 0 8px;font-family:'Roboto',sans-serif;font-weight:500;font-size:17px;">[Nombre del Proyecto 9]</h3>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.55;color:var(--text-muted);">[Breve descripción del proyecto.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;">
+<span class="badge-c" style="font-size:11px;padding:5px 12px;">Go</span><span class="badge-c" style="font-size:11px;padding:5px 12px;">Docker</span>
+</div>
+<div style="text-align:center;margin-top:12px;">
+<a href="proyecto.html" class="link-c" style="font-size:13px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
+
+<div class="pcard-c">
+<div class="thumb-box" style="height:140px;margin:14px 14px 0;border-radius:16px;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:20px;">
+<h3 style="margin:0 0 8px;font-family:'Roboto',sans-serif;font-weight:500;font-size:17px;">[Nombre del Proyecto 10]</h3>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.55;color:var(--text-muted);">[Breve descripción del proyecto.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;">
+<span class="badge-c" style="font-size:11px;padding:5px 12px;">Angular</span><span class="badge-c" style="font-size:11px;padding:5px 12px;">RxJS</span>
+</div>
+<div style="text-align:center;margin-top:12px;">
+<a href="proyecto.html" class="link-c" style="font-size:13px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
+
+<div class="pcard-c">
+<div class="thumb-box" style="height:140px;margin:14px 14px 0;border-radius:16px;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text-dim);"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 15l-5-5-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<div style="padding:20px;">
+<h3 style="margin:0 0 8px;font-family:'Roboto',sans-serif;font-weight:500;font-size:17px;">[Nombre del Proyecto 11]</h3>
+<p style="margin:0 0 12px;font-size:13px;line-height:1.55;color:var(--text-muted);">[Breve descripción del proyecto.]</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;">
+<span class="badge-c" style="font-size:11px;padding:5px 12px;">Swift</span><span class="badge-c" style="font-size:11px;padding:5px 12px;">iOS</span>
+</div>
+<div style="text-align:center;margin-top:12px;">
+<a href="proyecto.html" class="link-c" style="font-size:13px;color:var(--accent);">Ver proyecto <span class="arrow-ic">-&gt;</span></a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
 
 <footer class="site-footer">
-  © 2026 Nombre Apellido. Todos los derechos reservados.
+<div style="display:flex;gap:22px;">
+<a href="https://linkedin.com/" class="navlink2">LinkedIn</a>
+<a href="https://github.com/" class="navlink2">GitHub</a>
+</div>
 </footer>
 
+</div>
 </body>
 </html>
