@@ -43,6 +43,8 @@ a{text-decoration:none;color:inherit;}
 .pill-c{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:14px;font-weight:500;box-shadow:0 6px 18px rgba(0,0,0,0.35);transition:border-color .2s ease;}
 .pill-c:hover{border-color:var(--accent);}
 
+.icon-gs{font-family:'Material Symbols Outlined';font-size:18px;line-height:1;}
+
 .card-c{background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:0 12px 28px rgba(0,0,0,0.34);transition:border-color .2s ease;}
 .card-c:hover{border-color:var(--accent);}
 
