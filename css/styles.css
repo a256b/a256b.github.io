@@ -229,6 +229,20 @@ a {
   position: relative;
 }
 
+.card-empty {
+  min-height: 260px;
+  border: 2px dashed var(--border);
+  border-radius: 20px;
+}
+
+.is-disabled {
+  opacity: .55;
+}
+
+.is-disabled:hover {
+  border-color: var(--border);
+}
+
 /* ---------- Timeline ---------- */
 
 .timeline-rail {
