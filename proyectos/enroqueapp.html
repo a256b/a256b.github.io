@@ -184,6 +184,7 @@
 
     <footer class="site-footer">
       <div style="display:flex;gap:22px;">
+        <a href="#" class="pill-c pill-sm js-mail-link"><span class="icon-gs" aria-hidden="true" style="font-size:15px;">mail</span>Email</a>
         <a href="https://www.linkedin.com/in/blum-ariel/" class="pill-c pill-sm" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true" style="font-size:15px;">link</span>LinkedIn</a>
         <a href="https://github.com/a256b" class="pill-c pill-sm" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true" style="font-size:15px;">code</span>GitHub</a>
       </div>
@@ -238,6 +239,17 @@
       });
 
       goTo(0);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var user = 'arielblum.dev';
+      var domain = 'gmail.com';
+      var links = document.querySelectorAll('.js-mail-link');
+      links.forEach(function (link) {
+        link.href = 'mailto:' + user + '@' + domain;
+      });
     })();
   </script>
 
