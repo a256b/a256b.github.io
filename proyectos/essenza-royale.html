@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — Essenza Royale</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+
+    <nav class="site-nav">
+      <div class="nav-pill" style="justify-content:flex-start;">
+        <a href="../proyectos.html" class="back-link" style="color:var(--accent);"><span class="arrow-ic">&lt;-</span> Volver a proyectos</a>
+      </div>
+    </nav>
+
+    <section class="section-pad" style="position:relative;max-width:900px;margin:0 auto;padding-top:50px;padding-bottom:0;text-align:center;">
+      <div class="section-divider"></div>
+      <h1 style="margin:0;font-weight:700;font-size:34px;line-height:1.15;">Essenza Royale</h1>
+      <p style="margin:16px auto 0;max-width:620px;font-size:16px;line-height:1.75;color:var(--text-muted);">Plataforma e-commerce para la venta de perfumes desarrollada con Laravel, React y PostgreSQL (Neon).</p>
+      <p style="margin:16px auto 0;max-width:620px;font-size:16px;line-height:1.75;color:var(--text-muted);">Permite a los clientes explorar un catálogo de perfumes, buscar y seleccionar las variantes disponibles, consultar el historial de compras y realizar pagos mediante integración con Mercado Pago.</p>
+      <p style="margin:16px auto 0;max-width:620px;font-size:16px;line-height:1.75;color:var(--text-muted);">Por su parte, los administradores cuentan con un panel de gestión para administrar productos, descuentos, stock y ventas.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;justify-content:center;">
+        <span class="badge-c">React</span><span class="badge-c">Laravel</span><span class="badge-c">PostgreSQL</span>
+      </div>
+    </section>
+
+    <section class="section-pad" style="position:relative;max-width:900px;margin:0 auto;padding-top:40px;padding-bottom:0;">
+
+      <div style="position:relative;">
+        <div class="pcard-c carousel-viewport">
+          <div class="carousel-track" id="carouselTrack">
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1781560880/landing-page_kpin29.png" alt="Landing page de Essenza Royale" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1781560953/front-perfumes_wlhpst.png" alt="Catálogo de perfumes en el frontend" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1781560951/front-detalle-perfume_x8jy18.png" alt="Detalle de un perfume en el frontend" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1781560921/back-descuentos_qtgvsy.png" alt="Administración de descuentos en el panel backend" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1781560922/back-detalle-perfume_kyy1mn.png" alt="Detalle de un perfume en el panel backend" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+          </div>
+        </div>
+        <button type="button" id="carouselPrev" class="nav-arrow" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);" aria-label="Imagen anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text);"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <button type="button" id="carouselNext" class="nav-arrow" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);" aria-label="Imagen siguiente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text);"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+      </div>
+
+      <div id="carouselDots" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;">
+        <button type="button" class="dot-c active" data-index="0" aria-label="Ir a la captura 1" aria-current="true"></button>
+        <button type="button" class="dot-c" data-index="1" aria-label="Ir a la captura 2"></button>
+        <button type="button" class="dot-c" data-index="2" aria-label="Ir a la captura 3"></button>
+        <button type="button" class="dot-c" data-index="3" aria-label="Ir a la captura 4"></button>
+        <button type="button" class="dot-c" data-index="4" aria-label="Ir a la captura 5"></button>
+      </div>
+
+      <div class="thumbgrid" id="carouselThumbs" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:16px;">
+        <button type="button" class="thumb-c active" data-index="0" aria-label="Ver captura 1">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1781560880/landing-page_kpin29.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="1" aria-label="Ver captura 2">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1781560953/front-perfumes_wlhpst.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="2" aria-label="Ver captura 3">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1781560951/front-detalle-perfume_x8jy18.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="3" aria-label="Ver captura 4">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1781560921/back-descuentos_qtgvsy.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="4" aria-label="Ver captura 5">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1781560922/back-detalle-perfume_kyy1mn.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+      </div>
+
+    </section>
+
+    <section class="section-pad" style="position:relative;max-width:900px;margin:0 auto;padding-top:56px;padding-bottom:0;">
+      <h3 style="margin:0 0 16px;font-weight:600;font-size:22px;">Funcionalidades principales</h3>
+
+      <h4 style="margin:0 0 12px;font-weight:600;font-size:17px;color:var(--text);">Backend</h4>
+      <ul style="margin:0 0 28px;padding-left:20px;">
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Gestión de perfumes y variantes desde panel administrativo.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Control de stock y actualización automática durante las compras.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Registro de ventas y detalle de productos vendidos.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Administración y notificaciones sobre descuentos.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);">API REST desarrollada en Laravel.</li>
+      </ul>
+
+      <h4 style="margin:0 0 12px;font-weight:600;font-size:17px;color:var(--text);">Frontend</h4>
+      <ul style="margin:0 0 28px;padding-left:20px;">
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Catálogo de perfumes con imágenes, descripciones y variantes por volumen.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Carrito de compras con actualización dinámica de cantidades y totales.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Aplicación automática de descuentos y promociones.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Consulta del historial de compras.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Integración con Mercado Pago.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);">Diseño responsive.</li>
+      </ul>
+
+      <h4 style="margin:0 0 12px;font-weight:600;font-size:17px;color:var(--text);">Infraestructura</h4>
+      <ul style="margin:0;padding-left:20px;">
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Aplicación desplegada en Vercel.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Base de datos PostgreSQL alojada en Neon.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);">Arquitectura desacoplada entre frontend, backend y base de datos.</li>
+      </ul>
+    </section>
+
+    <section class="section-pad" style="position:relative;max-width:900px;margin:0 auto;padding-top:40px;padding-bottom:70px;text-align:center;">
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <a href="https://essenzaroyalefrontend.vercel.app/" class="pill-c" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true">public</span>Demo página</a>
+        <a href="https://essenzaroyalebackend.vercel.app/" class="pill-c" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true">dashboard</span>Demo panel</a>
+        <a href="https://github.com/ToroSantiago/aplicaciones_web_frontend" class="pill-c" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true">code</span>Repositorio frontend</a>
+        <a href="https://github.com/ToroSantiago/aplicaciones_web_backend" class="pill-c" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true">terminal</span>Repositorio backend</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div style="display:flex;gap:22px;">
+        <a href="https://linkedin.com/" class="pill-c pill-sm" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true" style="font-size:15px;">link</span>LinkedIn</a>
+        <a href="https://github.com/" class="pill-c pill-sm" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true" style="font-size:15px;">code</span>GitHub</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var track = document.getElementById('carouselTrack');
+      var slides = track.querySelectorAll('.carousel-slide');
+      var dots = document.querySelectorAll('#carouselDots .dot-c');
+      var thumbs = document.querySelectorAll('#carouselThumbs .thumb-c');
+      var prevBtn = document.getElementById('carouselPrev');
+      var nextBtn = document.getElementById('carouselNext');
+      var current = 0;
+
+      function goTo(index) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+        dots.forEach(function (dot, i) {
+          var active = i === current;
+          dot.classList.toggle('active', active);
+          if (active) {
+            dot.setAttribute('aria-current', 'true');
+          } else {
+            dot.removeAttribute('aria-current');
+          }
+        });
+
+        thumbs.forEach(function (thumb, i) {
+          var active = i === current;
+          thumb.classList.toggle('active', active);
+          if (active) {
+            thumb.setAttribute('aria-current', 'true');
+          } else {
+            thumb.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () { goTo(Number(dot.dataset.index)); });
+      });
+
+      thumbs.forEach(function (thumb) {
+        thumb.addEventListener('click', function () { goTo(Number(thumb.dataset.index)); });
+      });
+
+      goTo(0);
+    })();
+  </script>
+
+</body>
+</html>
