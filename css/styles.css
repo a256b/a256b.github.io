@@ -32,6 +32,8 @@ a {
 .page-shell {
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ---------- Nav ---------- */
@@ -365,6 +367,7 @@ a {
 /* ---------- Footer ---------- */
 
 .site-footer {
+  margin-top: auto;
   background: var(--surface);
   border-top: 1px solid var(--border);
   border-radius: 28px 28px 0 0;
