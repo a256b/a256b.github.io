@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — EnroqueApp</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+
+    <nav class="site-nav">
+      <div class="nav-pill" style="justify-content:flex-start;">
+        <a href="../proyectos.html" class="back-link" style="color:var(--accent);"><span class="arrow-ic">&lt;-</span> Volver a proyectos</a>
+      </div>
+    </nav>
+
+    <section class="section-pad" style="position:relative;max-width:900px;margin:0 auto;padding-top:50px;padding-bottom:0;text-align:center;">
+      <div class="section-divider"></div>
+      <h1 style="margin:0;font-weight:700;font-size:34px;line-height:1.15;">EnroqueApp</h1>
+      <div style="margin:16px auto 0;max-width:700px;text-align:left;">
+        <p style="margin:0 0 14px;font-size:16px;line-height:1.75;color:var(--text-muted);">Aplicación Android desarrollada en Kotlin para gestionar torneos de ajedrez.</p>
+        <p style="margin:0 0 14px;font-size:16px;line-height:1.75;color:var(--text-muted);">Permite a jugadores, aficionados y administradores participar en distintas etapas de un torneo mediante un sistema de roles y permisos, incluyendo inscripción de participantes, generación automática de fixtures, seguimiento de partidas en tiempo real y gestión de sedes mediante mapas interactivos.</p>
+        <p style="margin:0;font-size:16px;line-height:1.75;color:var(--text-muted);">La aplicación utiliza Firebase Authentication para la autenticación de usuarios y Cloud Firestore para la sincronización y persistencia de datos en tiempo real.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;justify-content:center;">
+        <span class="badge-c">Android</span><span class="badge-c">Kotlin</span><span class="badge-c">Firebase</span>
+      </div>
+    </section>
+
+    <section class="section-pad" style="position:relative;max-width:900px;margin:0 auto;padding-top:40px;padding-bottom:0;">
+
+      <div style="position:relative;">
+        <div class="pcard-c carousel-viewport">
+          <div class="carousel-track" id="carouselTrack">
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1770751131/drawer_tpc7td.png" alt="Menú lateral (drawer) de la aplicación" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1770655688/mapa_interactivo_pgv9p7.png" alt="Mapa interactivo de sedes de torneos" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1770655681/torneos_zfq8pr.png" alt="Listado de torneos" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1770655684/detalle_torneo_bbu89c.png" alt="Detalle de un torneo" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1770655681/fixture_rztvwf.png" alt="Fixture del torneo" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1770655682/detalle_partida_irqcgz.png" alt="Detalle de una partida" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1770655683/movimientos_efgl8z.png" alt="Carga de movimientos de ajedrez" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <div class="carousel-slide">
+              <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_1200/v1770655683/inscripciones_fk4aog.png" alt="Inscripciones al torneo" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+          </div>
+        </div>
+        <button type="button" id="carouselPrev" class="nav-arrow" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);" aria-label="Imagen anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text);"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <button type="button" id="carouselNext" class="nav-arrow" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);" aria-label="Imagen siguiente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:var(--text);"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+      </div>
+
+      <div id="carouselDots" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;">
+        <button type="button" class="dot-c active" data-index="0" aria-label="Ir a la captura 1" aria-current="true"></button>
+        <button type="button" class="dot-c" data-index="1" aria-label="Ir a la captura 2"></button>
+        <button type="button" class="dot-c" data-index="2" aria-label="Ir a la captura 3"></button>
+        <button type="button" class="dot-c" data-index="3" aria-label="Ir a la captura 4"></button>
+        <button type="button" class="dot-c" data-index="4" aria-label="Ir a la captura 5"></button>
+        <button type="button" class="dot-c" data-index="5" aria-label="Ir a la captura 6"></button>
+        <button type="button" class="dot-c" data-index="6" aria-label="Ir a la captura 7"></button>
+        <button type="button" class="dot-c" data-index="7" aria-label="Ir a la captura 8"></button>
+      </div>
+
+      <div class="thumbgrid" id="carouselThumbs" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px;">
+        <button type="button" class="thumb-c active" data-index="0" aria-label="Ver captura 1">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1770751131/drawer_tpc7td.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="1" aria-label="Ver captura 2">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1770655688/mapa_interactivo_pgv9p7.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="2" aria-label="Ver captura 3">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1770655681/torneos_zfq8pr.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="3" aria-label="Ver captura 4">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1770655684/detalle_torneo_bbu89c.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="4" aria-label="Ver captura 5">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1770655681/fixture_rztvwf.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="5" aria-label="Ver captura 6">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1770655682/detalle_partida_irqcgz.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="6" aria-label="Ver captura 7">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1770655683/movimientos_efgl8z.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button type="button" class="thumb-c" data-index="7" aria-label="Ver captura 8">
+          <img src="https://res.cloudinary.com/drnzeqcpu/image/upload/f_auto,q_auto,w_200/v1770655683/inscripciones_fk4aog.png" alt="" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+      </div>
+
+    </section>
+
+    <section class="section-pad" style="position:relative;max-width:900px;margin:0 auto;padding-top:56px;padding-bottom:0;">
+      <h3 style="margin:0 0 16px;font-weight:600;font-size:22px;">Funcionalidades principales</h3>
+
+      <h4 style="margin:0 0 12px;font-weight:600;font-size:17px;color:var(--text);">Usuarios y roles</h4>
+      <ul style="margin:0 0 28px;padding-left:20px;">
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Autenticación y registro mediante Firebase Authentication.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Sistema de roles para aficionados, jugadores y administradores.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Permisos y funcionalidades diferenciadas según el tipo de usuario.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);">Sistema de favoritos y seguimiento de torneos.</li>
+      </ul>
+
+      <h4 style="margin:0 0 12px;font-weight:600;font-size:17px;color:var(--text);">Gestión de torneos</h4>
+      <ul style="margin:0 0 28px;padding-left:20px;">
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Creación y administración de torneos.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Control de inscripciones y validación de participantes.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Gestión del ciclo de vida de torneos.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);">Generación automática de fixtures y emparejamientos.</li>
+      </ul>
+
+      <h4 style="margin:0 0 12px;font-weight:600;font-size:17px;color:var(--text);">Seguimiento de partidas</h4>
+      <ul style="margin:0 0 28px;padding-left:20px;">
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Registro y administración de partidas.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Carga de movimientos mediante un teclado especializado para notación de ajedrez.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Visualización de resultados y movimientos en tiempo real.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Historial completo de partidas por torneo.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);">Actualización automática de posiciones y clasificaciones.</li>
+      </ul>
+
+      <h4 style="margin:0 0 12px;font-weight:600;font-size:17px;color:var(--text);">Persistencia y sincronización</h4>
+      <ul style="margin:0 0 28px;padding-left:20px;">
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Almacenamiento de usuarios, torneos, partidas e inscripciones en Cloud Firestore.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Sincronización de datos en tiempo real entre dispositivos.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Persistencia del historial de torneos y partidas.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);">Actualización automática de información sin necesidad de recargar la aplicación.</li>
+      </ul>
+
+      <h4 style="margin:0 0 12px;font-weight:600;font-size:17px;color:var(--text);">Mapa interactivo</h4>
+      <ul style="margin:0 0 28px;padding-left:20px;">
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Visualización de sedes de torneos mediante Google Maps.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Marcadores personalizados para torneos y comercios asociados.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);">Consulta de ubicaciones y beneficios disponibles.</li>
+      </ul>
+
+      <h4 style="margin:0 0 12px;font-weight:600;font-size:17px;color:var(--text);">Tecnologías e infraestructura</h4>
+      <ul style="margin:0;padding-left:20px;">
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Android.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Kotlin.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Arquitectura MVVM y Clean Architecture.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Firebase Authentication para autenticación de usuarios.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Cloud Firestore para persistencia y sincronización de datos en tiempo real.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Jetpack Compose y XML Layouts.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Jetpack Navigation Component y ViewBinding.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);margin-bottom:6px;">Kotlin Coroutines.</li>
+        <li style="font-size:15px;line-height:1.75;color:var(--text-muted);">Google Maps Platform.</li>
+      </ul>
+    </section>
+
+    <section class="section-pad" style="position:relative;max-width:900px;margin:0 auto;padding-top:40px;padding-bottom:70px;text-align:center;">
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <a href="https://github.com/a256b/EnroqueApp" class="pill-c" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true">code</span>Repositorio</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div style="display:flex;gap:22px;">
+        <a href="https://linkedin.com/" class="pill-c pill-sm" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true" style="font-size:15px;">link</span>LinkedIn</a>
+        <a href="https://github.com/" class="pill-c pill-sm" target="_blank" rel="noopener"><span class="icon-gs" aria-hidden="true" style="font-size:15px;">code</span>GitHub</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var track = document.getElementById('carouselTrack');
+      var slides = track.querySelectorAll('.carousel-slide');
+      var dots = document.querySelectorAll('#carouselDots .dot-c');
+      var thumbs = document.querySelectorAll('#carouselThumbs .thumb-c');
+      var prevBtn = document.getElementById('carouselPrev');
+      var nextBtn = document.getElementById('carouselNext');
+      var current = 0;
+
+      function goTo(index) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+        dots.forEach(function (dot, i) {
+          var active = i === current;
+          dot.classList.toggle('active', active);
+          if (active) {
+            dot.setAttribute('aria-current', 'true');
+          } else {
+            dot.removeAttribute('aria-current');
+          }
+        });
+
+        thumbs.forEach(function (thumb, i) {
+          var active = i === current;
+          thumb.classList.toggle('active', active);
+          if (active) {
+            thumb.setAttribute('aria-current', 'true');
+          } else {
+            thumb.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () { goTo(Number(dot.dataset.index)); });
+      });
+
+      thumbs.forEach(function (thumb) {
+        thumb.addEventListener('click', function () { goTo(Number(thumb.dataset.index)); });
+      });
+
+      goTo(0);
+    })();
+  </script>
+
+</body>
+</html>
