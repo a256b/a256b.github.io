@@ -252,6 +252,10 @@ a {
   padding-left: 36px;
 }
 
+.timeline-rail .card-c:hover {
+  border-color: var(--border);
+}
+
 .timeline-dot {
   position: absolute;
   left: -45px;
