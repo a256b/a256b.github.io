@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="https://res.cloudinary.com/drnzeqcpu/image/upload/v1790030248/favicon_ifnker.png">
@@ -18,7 +23,7 @@
   <div class="page-shell">
 
     <nav class="site-nav">
-      <div class="nav-pill" style="justify-content:flex-end;">
+      <div class="nav-pill" style="justify-content:space-between;">
         <div class="nav-links">
           <a href="#inicio" class="navlink2">Inicio</a>
           <span aria-hidden="true" class="nav-sep">|</span>
@@ -28,6 +33,9 @@
           <span aria-hidden="true" class="nav-sep">|</span>
           <a href="#certificaciones" class="navlink2">Certificaciones</a>
         </div>
+        <button type="button" id="themeToggle" class="theme-toggle" aria-label="Cambiar a modo claro">
+          <span class="icon-gs" id="themeIcon" aria-hidden="true">light_mode</span>
+        </button>
       </div>
     </nav>
 
@@ -177,6 +185,31 @@
       var links = document.querySelectorAll('.js-mail-link');
       links.forEach(function (link) {
         link.href = 'mailto:' + user + '@' + domain;
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      var icon = document.getElementById('themeIcon');
+      function sync() {
+        var isLight = root.getAttribute('data-theme') === 'light';
+        icon.textContent = isLight ? 'dark_mode' : 'light_mode';
+        btn.setAttribute('aria-label', isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        var isLight = root.getAttribute('data-theme') === 'light';
+        if (isLight) {
+          root.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          root.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+        }
+        sync();
       });
     })();
   </script>
